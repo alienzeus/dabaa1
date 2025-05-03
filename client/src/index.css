@@ -11,3 +11,12 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 }
+@layer base {
+  :root {
+    --border: 214.3 31.8% 91.4%; /* Default border color */
+  }
+
+  .border-border {
+    @apply border-2 border-[hsl(var(--border))];
+  }
+}
