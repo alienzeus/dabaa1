@@ -1,0 +1,8 @@
+services:
+  - type: static
+    name: my-static-app
+    buildCommand: npm install && npm run build  # This will run `vite build`
+    publishDirectory: dist  # This is where your static files will be generated
+    envVars:
+      - key: NODE_ENV
+        value: production
