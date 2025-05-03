@@ -1,14 +1,14 @@
 services:
   - type: web
-    name: dabaa-fullstack
+    name: my-fullstack-app
     env: node
     plan: free
-    buildCommand: npm install && npm run build
+    buildCommand: NODE_ENV=development npm install && npm run build
     startCommand: npm start
-    autoDeploy: true
     envVars:
       - key: NODE_ENV
         value: production
-      # Add other environment variables here as needed
-      # - key: DATABASE_URL
-      #   value: your_database_url_here
+      - key: DATABASE_URL
+        value: your_db_url
+      - key: SESSION_SECRET
+        value: your_secret
