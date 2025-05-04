@@ -1,8 +1,24 @@
+# render.yaml
 services:
-  - type: static
-    name: my-static-app
-    buildCommand: npm install && npm run build  # This will run `vite build`
-    publishDirectory: dist  # This is where your static files will be generated
+  # Client (Frontend) - Static Site
+  - type: static_site
+    name: dabaa1-client
+    env: node
+    nodeVersion: 18.x
+    buildCommand: npm install && npm run build
+    publish: client/dist
+    autoDeploy: true
+
+  # Server (Backend) - Web Service
+  - type: web
+    name: dabaa1-server
+    env: node
+    nodeVersion: 18.x
+    buildCommand: npm install
+    startCommand: node server/index.js
     envVars:
       - key: NODE_ENV
         value: production
+      - key: PORT
+        value: 10000
+    autoDeploy: true
